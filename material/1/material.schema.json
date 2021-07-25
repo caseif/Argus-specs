@@ -1,6 +1,6 @@
 {
-  "$schema": "https://schema.argusengine.io/argus.schema.json",
-  "$id": "https://schema.argusengine.io/material.schema.json",
+  "$schema": "https://schema.argusengine.io/argus/1/schema",
+  "$id": "https://schema.argusengine.io/material/1/schema",
   "$version": 1,
   "title": "Material",
   "description": "A material used to render 2D/3D objects.",
