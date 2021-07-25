@@ -1,0 +1,67 @@
+{
+  "$schema": "https://schema.argusengine.io/argus.schema.json",
+  "$id": "https://schema.argusengine.io/material.schema.json",
+  "$version": 1,
+  "title": "Material",
+  "description": "A material used to render 2D/3D objects.",
+  "type": "object",
+  "properties": {
+    "version": {
+      "description": "The version of the schema this resource conforms to.",
+      "type": "number"
+    },
+    "texture": {
+      "description": "The UID of the texture associated with this material.",
+      "type": "string"
+    },
+    "shaders": {
+      "description": "The shaders associated with this material.",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "enum": [
+              "vertex",
+              "fragment",
+              "geometry",
+              "compute",
+              "mesh",
+              "tess_control",
+              "tess_evaluation"
+            ]
+          },
+          "uid": {
+            "description": "The UID of the shader.",
+            "type": "string"
+          }
+        },
+        "required": [
+          "type",
+          "uid"
+        ]
+      },
+      "minItems": 1,
+      "uniqueKeys": [
+        "/type"
+      ]
+    },
+    "attributes": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "position",
+          "normal",
+          "color",
+          "texcoord"
+        ]
+      }
+    }
+  },
+  "required": [
+    "texture",
+    "attributes"
+  ]
+}

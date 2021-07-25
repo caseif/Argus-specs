@@ -1,0 +1,8 @@
+Material Format Specification
+
+Parameters
+==========
+
+Base encoding: JSON
+Mime type: text/x-argus-material+json
+Extension: mat
