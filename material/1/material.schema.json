@@ -7,17 +7,18 @@
   "type": "object",
   "properties": {
     "texture": {
-      "description": "The UID of the texture associated with this material.",
+      "description": "The UID of the texture associated with the material.",
       "type": "string"
     },
     "shaders": {
-      "description": "The shaders associated with this material.",
+      "description": "The shaders associated with the material.",
       "type": "array",
       "items": {
         "type": "object",
         "properties": {
-          "type": {
+          "stage": {
             "type": "string",
+            "description": "The stage of the shader in the rendering pipeline.",
             "enum": [
               "vertex",
               "fragment",
@@ -45,6 +46,7 @@
     },
     "attributes": {
       "type": "array",
+      "description": "The vertex attributes expected to be supplied to the material's shaders.",
       "items": {
         "type": "string",
         "enum": [
