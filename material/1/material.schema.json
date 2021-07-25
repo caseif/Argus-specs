@@ -6,10 +6,6 @@
   "description": "A material used to render 2D/3D objects.",
   "type": "object",
   "properties": {
-    "version": {
-      "description": "The version of the schema this resource conforms to.",
-      "type": "number"
-    },
     "texture": {
       "description": "The UID of the texture associated with this material.",
       "type": "string"
