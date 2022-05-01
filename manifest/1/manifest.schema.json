@@ -1,0 +1,140 @@
+{
+  "$schema": "https://schema.argusengine.io/argus/1/schema",
+  "$id": "https://schema.argusengine.io/manifest/1/schema",
+  "$version": 1,
+  "title": "Argus Manifest",
+  "description": "A manifest which provides client bring-up parameters to the Argus engine. Certain information about the client is mandatory, but sensible defaults will be used for any non-required information not provided.",
+  "type": "object",
+  "properties": {
+    "client": {
+      "description": "Meta-information about the client.",
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "The unique identifier string of the client. This is used internally for things such as config paths."
+        },
+        "name": {
+          "type": "string",
+          "description": "The friendly name of the client."
+        },
+        "version": {
+          "type": "string",
+          "description": "The current version of the client application."
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "version"
+      ]
+    },
+    "engine": {
+      "type": "object",
+      "description": "Configuration pertaining to basic engine behavior.",
+      "properties": {
+        "modules": {
+          "type": "array",
+          "description": "The engine modules requested by the client.",
+          "items": {
+            "type": "string",
+            "format": "regex",
+            "pattern": "[a-z_]+"
+          }
+        },
+        "render_backends": {
+          "type": "array",
+          "description": "The render backends preferred by the client in order of preference. If none from the list can be used, a default will be used based on the current system.",
+          "items": {
+            "type": "string",
+            "format": "regex",
+            "pattern": "[a-z_]+"
+          }
+        },
+        "target_tickrate": {
+          "type": "integer",
+          "description": "The target maximum tickrate of the engine. The tickrate is the number of times the update loop runs per second. 0 means no limit.",
+          "minimum": 0
+        },
+        "target_framerate": {
+          "type": "integer",
+          "description": "The target maximum framerate of the engine. The framerate is the number of times the render loop runs per second. 0 means no limit. This parameter is applicable only when VSync is disabled.",
+          "minimum": 0
+        }
+      }
+    },
+    "window": {
+      "type": "object",
+      "description": "The intial window configuration.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "The internal unique identifier of the window.",
+          "pattern": "[a-z_]+"
+        },
+        "title": {
+          "type": "string",
+          "description": "The initial title of the window."
+        },
+        "mode": {
+          "type": "string",
+          "description": "The default windowing mode of the window. This is only applied if a cached value cannot be loaded from disk.",
+          "enum": [
+            "windowed",
+            "borderless",
+            "fullscreen"
+          ]
+        },
+        "position": {
+          "type": "object",
+          "description": "The initial position of the window on the desktop. This is applicable only if 'mode' is 'windowed'.",
+          "properties": {
+            "x": {
+              "type": "integer",
+              "description": "The x-coordinate of the initial window position."
+            },
+            "y": {
+              "type": "integer",
+              "description": "The y-coordinate of the initial window position."
+            }
+          }
+        },
+        "dimensions": {
+          "type": "object",
+          "description": "The intial dimensions of the window on the desktop. This is applicable only if 'mode' is 'windowed'.",
+          "properties": {
+            "width": {
+              "type": "integer",
+              "description": "The initial window width.",
+              "minimum": 0
+            },
+            "height": {
+              "type": "integer",
+              "description": "The initial window height.",
+              "minimum": 0
+            }
+          }
+        }
+      }
+    },
+    "bindings": {
+      "type": "object",
+      "description": "Configuration pertaining to input bindings.",
+      "properties": {
+        "default_bindings_resource": {
+          "type": "string",
+          "description": "The identifier of the resource containing the default input bindings to configure. If a binding configuration is present on disk and 'save_user_bindings' is true, this resource will be used only supplementally.",
+          "format": "regex",
+          "pattern": "^[^/\\:]+:[^/\\:]+(\/[^/\\:]+)*$"
+        },
+        "save_user_bindings": {
+          "type": "boolean",
+          "description": "Whether to save and load changes to input bindings to and from disk."
+        }
+      }
+    }
+  },
+  "required": [
+    "client"
+  ]
+}
