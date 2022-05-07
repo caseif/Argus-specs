@@ -1,0 +1,8 @@
+Argus Client Config Format Specification
+
+Parameters
+==========
+
+Base encoding: JSON
+Mime type: application/json
+Extension: json

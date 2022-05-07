@@ -1,13 +1,13 @@
 {
   "$schema": "https://schema.argusengine.io/argus/1/schema",
-  "$id": "https://schema.argusengine.io/manifest/1/schema",
+  "$id": "https://schema.argusengine.io/client-config/1/schema",
   "$version": 1,
-  "title": "Argus Manifest",
-  "description": "A manifest which provides client bring-up parameters to the Argus engine. Certain information about the client is mandatory, but sensible defaults will be used for any non-required information not provided.",
+  "title": "Argus Client Config",
+  "description": "A configuration file which provides client bring-up parameters to the Argus engine. Certain properties pertaining to the client identity are mandatory, but sensible defaults will be used for any non-required information not provided.",
   "type": "object",
   "properties": {
     "client": {
-      "description": "Meta-information about the client.",
+      "description": "Identifying information for the client.",
       "type": "object",
       "properties": {
         "id": {

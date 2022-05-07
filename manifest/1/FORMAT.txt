@@ -1,8 +1,0 @@
-Argus Manifest Format Specification
-
-Parameters
-==========
-
-Base encoding: JSON
-Mime type: text/x-argus-manifest+json
-Extension: argusmanifest
