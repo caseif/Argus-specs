@@ -1,0 +1,119 @@
+{
+  "$schema": "https://schema.argusengine.io/argus/1/schema",
+  "$id": "https://schema.argusengine.io/bindings/1/schema",
+  "$version": 1,
+  "title": "Argus Bindings",
+  "description": "A configuration file which provides one-to-many mappings from input actions to semantic actions for multiple input device types.",
+  "type": "object",
+  "properties": {
+    "keyboard": {
+      "type": "object",
+      "description": "Bindings for actions triggered by the keyboard.",
+      "properties": {
+        "keys": {
+          "type": "array",
+          "description": "Bindings for actions triggered by keyboard keys.",
+          "items": {
+            "type": "object",
+            "properties": {
+              "scancode": {
+                "type": "integer",
+                "description": "The numeric scancode of the key which triggers the actions.",
+                "minimum": 0
+              },
+              "actions": {
+                "type": "string",
+                "description": "The actions triggered by the binding."
+              }
+            }
+          }
+        }
+      }
+    },
+    "mouse": {
+      "type": "object",
+      "description": "Bindings for actions triggered by mouse buttons and axes.",
+      "properties": {
+        "buttons": {
+          "type": "array",
+          "description": "Bindings for actions triggered by mouse buttons.",
+          "items": {
+            "type": "object",
+            "properties": {
+              "index": {
+                "type": "integer",
+                "description": "The index of the button on the mouse.",
+                "minimum": 0
+              },
+              "actions": {
+                "type": "string",
+                "description": "The actions triggered by the binding."
+              }
+            }
+          }
+        },
+        "axes": {
+          "type": "array",
+          "description": "Bindings for actions triggered by mouse axes.",
+          "items": {
+            "type": "object",
+            "properties": {
+              "axis": {
+                "type": "string",
+                "description": "The mouse axis which triggers the actions.",
+                "enum": [
+                  "horizontal",
+                  "vertical"
+                ]
+              },
+              "actions": {
+                "type": "string",
+                "description": "The actions triggered by the binding."
+              }
+            }
+          }
+        }
+      }
+    },
+    "gamepad": {
+      "description": "Bindings for actions triggered by gamepad buttons and axes.",
+      "type": "object",
+      "properties": {
+        "buttons": {
+          "description": "Bindings for actions triggered by gamepad buttons.",
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "index": {
+                "type": "integer",
+                "description": "The index of the button on the gamepad."
+              },
+              "actions": {
+                "type": "string",
+                "description": "The actions triggered by the binding."
+              }
+            }
+          }
+        },
+        "axes": {
+          "description": "Bindings for actions triggered by gamepad axes.",
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "index": {
+                "type": "integer",
+                "description": "The index of the axis on the gamepad."
+              },
+              "actions": {
+                "type": "string",
+                "description": "The actions triggered by the binding."
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
