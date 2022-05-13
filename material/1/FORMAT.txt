@@ -4,5 +4,5 @@ Parameters
 ==========
 
 Base encoding: JSON
-Mime type: text/x-argus-material+json
+Mime type: application/x-argus-material+json
 Extension: mat

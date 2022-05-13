@@ -85,6 +85,24 @@
             "fullscreen"
           ]
         },
+        "vsync": {
+          "type": "boolean",
+          "description": "Whether to enable vsync by default."
+        },
+        "mouse": {
+          "type": "object",
+          "description": "Properties pertaining to the initial mouse behavior.",
+          "properties": {
+            "visible": {
+              "type": "boolean",
+              "description": "Whether the mouse cursor will be visible initially."
+            },
+            "capture": {
+              "type": "boolean",
+              "description": "Whether the mouse cursor will be captive to the window initially."
+            }
+          }
+        },
         "position": {
           "type": "object",
           "description": "The initial position of the window on the desktop. This is applicable only if 'mode' is 'windowed'.",

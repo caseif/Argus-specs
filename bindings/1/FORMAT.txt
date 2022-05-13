@@ -4,5 +4,5 @@ Parameters
 ==========
 
 Base encoding: JSON
-Mime type: application/json
-Extension: json
+Mime type: application/x-argus-bindings+json
+Extension: bindings
