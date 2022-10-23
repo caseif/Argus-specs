@@ -43,23 +43,10 @@
       "uniqueKeys": [
         "/type"
       ]
-    },
-    "attributes": {
-      "type": "array",
-      "description": "The vertex attributes expected to be supplied to the material's shaders.",
-      "items": {
-        "type": "string",
-        "enum": [
-          "position",
-          "normal",
-          "color",
-          "texcoord"
-        ]
-      }
     }
   },
   "required": [
     "texture",
-    "attributes"
+    "shaders"
   ]
 }
